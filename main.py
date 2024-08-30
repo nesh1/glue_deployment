@@ -5,8 +5,8 @@ from botocore.exceptions import ClientError
 
 AWS_S3_BUCKET_NAME = 'glue-buck1'
 AWS_REGION = 'us-east-1'
-AWS_ACCESS_KEY = 'AKIATOA5B3HZNOQSD3OA'
-AWS_SECRET_KEY = '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'
+AWS_ACCESS_KEY = ''
+AWS_SECRET_KEY = ''
 
 LOCAL_FILE = 'glue_job.py'
 NAME_FOR_S3 = 'codes/glue_job.py'
@@ -82,8 +82,8 @@ description= 'description'
 role_arn = "arn:aws:iam::236284140018:role/IAM_GitHub"
 script_location = 's3://glue-buck1/codes/glue_job.py'
 
-glue = boto3.client("glue",region_name='us-east-1',aws_access_key_id='AKIATOA5B3HZJA2C5TIE',
-        aws_secret_access_key='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')
+glue = boto3.client("glue",region_name='us-east-1',aws_access_key_id='',
+        aws_secret_access_key='')
 gw = GlueWrapper(glue)
 
 gw.create_job(name,description,role_arn,script_location)
