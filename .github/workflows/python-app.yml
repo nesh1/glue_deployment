@@ -31,8 +31,12 @@ jobs:
     - name : Configure AWS creds
       uses : aws-actions/configure-aws-credentials@v1
       with : 
+        role-to-assume : ${{vars.AWS_ROLE_ARN}}
+        aws-access-key-id	:${{secrets.AWS_ACCESS_KEY_ID}}
+        aws-secret-access-key	 :${{AWS_SECRET_ACCESS_KEY}}
+        aws-region	: "us-east-1"
+
     - name: run python
       run: |
         # pythin main.py
         python main.py
-
