@@ -33,8 +33,7 @@ jobs:
       uses : aws-actions/configure-aws-credentials@v3
       with : 
         role-to-assume : arn:aws:iam::236284140018:oidc-provider/token.actions.githubusercontent.com
-        aws-access-key-id	: ${{secrets.AWS_ACCESS_KEY_ID}}
-        aws-secret-access-key	: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+        role-skip-session-tagging: true
         aws-region	: "us-east-1"
         
     - name: run python
