@@ -11,7 +11,7 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -36,6 +36,7 @@ jobs:
         aws-access-key-id	: ${{secrets.AWS_ACCESS_KEY_ID}}
         aws-secret-access-key	: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws-region	: "us-east-1"
+        audience: sigstore
 
     - name: run python
       run: |
