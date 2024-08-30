@@ -30,13 +30,12 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name : Configure AWS creds
-      uses : aws-actions/configure-aws-credentials@master
+      uses : aws-actions/configure-aws-credentials@v3
       with : 
         role-to-assume : ${{secrets.OIDC_ROLE}}
         aws-access-key-id	: ${{secrets.AWS_ACCESS_KEY_ID}}
         aws-secret-access-key	: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws-region	: "us-east-1"
-        audience: sigstore
 
     - name: run python
       run: |
