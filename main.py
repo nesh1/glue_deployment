@@ -4,8 +4,6 @@ from botocore.exceptions import ClientError
 
 
 AWS_S3_BUCKET_NAME = 'glue-buck1'
-AWS_REGION = 'us-east-1'
-
 
 LOCAL_FILE = 'glue_job.py'
 NAME_FOR_S3 = 'codes/glue_job.py'
@@ -15,9 +13,9 @@ def upload_file_to_s3():
 
     s3_client = boto3.client(
         service_name='s3',
-        region_name=AWS_REGION,
-        aws_access_key_id=,
-        aws_secret_access_key=
+        # region_name=AWS_REGION,
+        # aws_access_key_id=,
+        # aws_secret_access_key=
     )
 
     response = s3_client.upload_file(LOCAL_FILE, AWS_S3_BUCKET_NAME, NAME_FOR_S3)
@@ -71,6 +69,7 @@ class GlueWrapper:
                 err.response["Error"]["Message"],
             )
             raise
+        print('glue job has been created')
 
 
 upload_file_to_s3()
@@ -81,8 +80,7 @@ description= 'description'
 role_arn = "arn:aws:iam::236284140018:role/IAM_GitHub"
 script_location = 's3://glue-buck1/codes/glue_job.py'
 
-glue = boto3.client("glue",region_name='us-east-1',aws_access_key_id='',
-        aws_secret_access_key='')
+glue = boto3.client("glue")
 gw = GlueWrapper(glue)
 
 gw.create_job(name,description,role_arn,script_location)
