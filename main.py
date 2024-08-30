@@ -5,8 +5,7 @@ from botocore.exceptions import ClientError
 
 AWS_S3_BUCKET_NAME = 'glue-buck1'
 AWS_REGION = 'us-east-1'
-AWS_ACCESS_KEY = ''
-AWS_SECRET_KEY = ''
+
 
 LOCAL_FILE = 'glue_job.py'
 NAME_FOR_S3 = 'codes/glue_job.py'
@@ -17,8 +16,8 @@ def upload_file_to_s3():
     s3_client = boto3.client(
         service_name='s3',
         region_name=AWS_REGION,
-        aws_access_key_id=AWS_ACCESS_KEY,
-        aws_secret_access_key=AWS_SECRET_KEY
+        aws_access_key_id=,
+        aws_secret_access_key=
     )
 
     response = s3_client.upload_file(LOCAL_FILE, AWS_S3_BUCKET_NAME, NAME_FOR_S3)
