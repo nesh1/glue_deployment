@@ -3,7 +3,7 @@ from botocore.exceptions import ClientError
 
 
 
-AWS_S3_BUCKET_NAME = 'glue-buck1'
+AWS_S3_BUCKET_NAME = 'glue-assets1'
 
 LOCAL_FILE = 'glue_job.py'
 NAME_FOR_S3 = 'codes/glue_job.py'
@@ -78,7 +78,7 @@ upload_file_to_s3()
 name = 'test_job'
 description= 'description'
 role_arn = "arn:aws:iam::236284140018:role/IAM_GitHub"
-script_location = 's3://glue-buck1/codes/glue_job.py'
+script_location = 's3://glue-assets1/codes/glue_job.py'
 
 glue = boto3.client("glue")
 gw = GlueWrapper(glue)
