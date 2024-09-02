@@ -61,6 +61,8 @@ class GlueWrapper:
                 },
                 GlueVersion="3.0",
             )
+            print('glue job has been created')
+
         except ClientError as err:
             print(
                 "Couldn't create job %s. Here's why: %s: %s",
@@ -69,7 +71,6 @@ class GlueWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-        print('glue job has been created')
 
 
 upload_file_to_s3()
